@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LVK PRO - Главная</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Общие стили */
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333333;
+      display: flex;
+      margin: 0;
+      overflow: hidden;
+      background-color: #f8f8f8;
+    }
+
+    /* Стили для анимированного фона */
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      background-color: rgba(255, 51, 102, 0.3); /* Мягкий розовый с прозрачностью */
+      border-radius: 50%;
+      filter: blur(8px);
+      animation: float 10s infinite linear;
+    }
+
+    /* Анимация для плавного движения */
+    @keyframes float {
+      from {
+        transform: translateY(0) translateX(0) scale(1);
+      }
+      to {
+        transform: translateY(-100vh) translateX(50vw) scale(1.5);
+      }
+    }
+
+    /* Плавные изменения размеров и цвета */
+    @keyframes colorChange {
+      0%, 100% { background-color: rgba(255, 51, 102, 0.3); }
+      50% { background-color: rgba(150, 50, 200, 0.2); }
+    }
+
+    /* Добавим случайные размеры и скорость для частиц */
+    .particle:nth-child(odd) {
+      animation-duration: 12s;
+      background-color: rgba(150, 50, 200, 0.2);
+    }
+
+    .particle:nth-child(even) {
+      animation-duration: 8s;
+      background-color: rgba(100, 100, 255, 0.2);
+    }
+
+    /* Стили боковой панели */
+    .sidebar {
+      width: 250px;
+      background-color: #f8f8f8;
+      padding: 20px;
+      height: 100vh;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      position: fixed;
+    }
+
+    .sidebar h2 {
+      font-size: 30px;
+      color: #ff3366;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Стили для ссылок в меню */
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+      color: #ff3366;
+      text-decoration: none;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    .sidebar ul li a i {
+      margin-right: 10px;
+    }
+
+    .sidebar ul li a.active, .sidebar ul li a:hover {
+      color: #f8f8f8;
+      background-color: #ff3366;
+    }
+
+    /* Стили основного контента */
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+      margin-left: 270px;
+      margin-top: 20px;
+    }
+
+    header h1 {
+      font-size: 48px;
+      color: #ff3366;
+      margin-bottom: 20px;
+    }
+
+    /* Стили блоков */
+    .blocks {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .block {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .block:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .block h2 {
+      font-size: 24px;
+      color: #ff3366;
+      margin-bottom: 15px;
+    }
+
+    .block p {
+      font-size: 16px;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+
+    .block button {
+      background-color: #ff3366;
+      border: none;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .block button:hover {
+      background-color: #ff6699;
+      transform: translateY(-3px);
+    }
+
+    /* Стили подвала */
+    footer {
+      background-color: #f8f8f8;
+      color: #ff3366;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      margin-left: 270px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 12px;
+    }
+
+    /* Стили для видеопроигрывателя и плейлиста */
+    .media-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .media-block {
+      background: #ffffff;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      backdrop-filter: blur(10px);
+      width: 48%;
+    }
+
+    .media-block:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .media-block iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+    }
+
+    #vk_playlist_-138805956_14 {
+      width: 100%;
+      height: 315px;
+    }
+
+    /* Стили для блока социальных сетей */
+    .social-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .social-links h2 {
+      font-size: 24px;
+      color: #ff3366;
+      margin-bottom: 15px;
+    }
+
+    .social-links ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .social-links ul li {
+      margin: 10px;
+      text-align: center;
+    }
+
+    .social-links ul li a {
+      color: #ff3366;
+      text-decoration: none;
+      font-size: 16px;
+      display: block;
+      padding: 10px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+      background-color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-links ul li a:hover {
+      background-color: #ff3366;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Анимированный фон -->
+  <div class="animated-bg" id="background">
+    <!-- Частицы добавляются с помощью JavaScript -->
+  </div>
+
+  <!-- Боковая панель -->
+  <div class="sidebar">
+    <h2>LVK PRO</h2>
+    <ul>
+      <li><a href="index.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
+      <li><a href="music.html"><i class="fas fa-music"></i> Музыка</a></li>
+      <li><a href="clips.html"><i class="fas fa-video"></i> Клипы</a></li>
+      <li><a href="biographies.html"><i class="fas fa-book"></i> Биографии</a></li>
+      <li><a href="gallery.html"><i class="fas fa-images"></i> Галерея</a></li>
+      <li><a href="about.html"><i class="fas fa-info-circle"></i> О нас</a></li>
+    </ul>
+  </div>
+
+  <!-- Основной контент -->
+  <div class="content">
+    <header>
+      <h1>С возвращением ✌</h1>
+    </header>
+    <section class="blocks">
+      <div class="block">
+        <h2>ТОП КЛИПОВ</h2>
+        <p>Популярные клипы нашего сайта.</p>
+        <button>Смотреть</button>
+      </div>
+      <div class="block">
+        <h2>ТОП 10 ТРЕКОВ</h2>
+        <p>Лучшие треки нашего сайта.</p>
+        <button>Слушать</button>
+      </div>
+      <div class="block">
+        <h2>ПОСЛЕДНИЕ НОВОСТИ</h2>
+        <p>Последние новости из мира музыки.</p>
+        <button>Читать</button>
+      </div>
+    </section>
+
+    <!-- Видеопроигрыватель и плейлист VK -->
+    <div class="media-container">
+      <div class="media-block">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-hUNsbyFMio?si=OTg5fDySHmsPlzKd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="media-block">
+        <!-- Блок социальных сетей -->
+        <div class="social-links">
+          <h2>Подпишитесь на нас</h2>
+          <ul>
+            <li><a href="https://instagram.com/levakantj" target="_blank">INSTAGRAM</a></li>
+            <li><a href="https://tiktok.com/@levakandprod" target="_blank">TIK TOK</a></li>
+            <li><a href="https://t.me/levakandprod" target="_blank">TELEGRAM</a></li>
+            <li><a href="https://vk.com/levakand" target="_blank">VK</a></li>
+            <li><a href="https://mix.tj/channel/LEVAKAND" target="_blank">MIX TJ</a></li>
+          </ul>
+        </div>
+        <!-- Плейлист VK -->
+        <div id="vk_playlist_-138805956_14"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Подвал -->
+  <footer>
+    <p>&copy; 2024 LVK PRO. Все права защищены.</p>
+  </footer>
+
+  <!-- JavaScript для создания частиц -->
+  <script>
+    const particleCount = 20; // количество частиц
+    const background = document.getElementById('background');
+
+    // Создание частиц
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+
+      // Установка случайного размера, позиции и задержки анимации
+      const size = Math.random() * 50 + 20; // случайный размер от 20 до 70 пикселей
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.top = `${Math.random() * 100}vh`;
+      particle.style.left = `${Math.random() * 100}vw`;
+      particle.style.animationDelay = `${Math.random() * 5}s`;
+      particle.style.animationDuration = `${Math.random() * 15 + 10}s`;
+
+      background.appendChild(particle);
+    }
+  </script>
+
+  <!-- JavaScript для плейлиста VK -->
+  <script type="text/javascript" src="https://vk.com/js/api/openapi.js?173"></script>
+  <script type="text/javascript">
+    (function() {
+      VK.Widgets.Playlist("vk_playlist_-138805956_14", -138805956, 14, '3d5d6d463c655def24');
+    }());
+  </script>
+</body>
+</html>

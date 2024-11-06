@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LVK PRO - О нас</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Общие стили */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1A1B2D;
+      color: #FFFFFF;
+      display: flex;
+      margin: 0;
+      overflow-y: scroll;
+      scrollbar-width: thin;
+      scrollbar-color: #7C4DFF #1A1B2D;
+      background-image: url('background.jpg'); /* Замените на путь к вашему фоновому изображению */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    /* Стили скроллбара */
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #1A1B2D;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #7C4DFF;
+      border-radius: 6px;
+    }
+
+    /* Стили боковой панели */
+    .sidebar {
+      width: 250px;
+      background-color: #292A3B;
+      padding: 20px;
+      height: 100vh;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar h2 {
+      font-size: 36px;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Стили для ссылок в меню */
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar ul li {
+      margin: 15px 0;
+    }
+
+    .sidebar ul li a {
+      color: #A0A3C3;
+      text-decoration: none;
+      font-size: 18px;
+      display: block;
+      padding: 10px;
+      border-radius: 8px;
+      transition: 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .sidebar ul li a i {
+      margin-right: 10px;
+    }
+
+    .sidebar ul li a.active {
+      color: #FFFFFF;
+      background-color: #7C4DFF;
+    }
+
+    /* Эффект при наведении на ссылки в меню */
+    .sidebar ul li a:hover {
+      color: #FFFFFF;
+      background-color: #7C4DFF;
+    }
+
+    /* Стили основного контента */
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+      background: rgba(26, 27, 45, 0.9);
+      border-radius: 15px;
+      margin: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    header {
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 48px;
+      color: #FFFFFF;
+    }
+
+    /* Стили текста */
+    p {
+      font-size: 18px;
+      color: #A0A3C3;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      font-size: 18px;
+      color: #A0A3C3;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    ul li::before {
+      content: '✅';
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Боковая панель -->
+  <div class="sidebar">
+    <h2>LVK PRO</h2>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Главная</a></li>
+      <li><a href="music.html"><i class="fas fa-music"></i> Музыка</a></li>
+      <li><a href="clips.html"><i class="fas fa-video"></i> Клипы</a></li>
+      <li><a href="biographies.html"><i class="fas fa-book"></i> Биографии</a></li>
+      <li><a href="gallery.html"><i class="fas fa-images"></i> Галерея</a></li>
+      <li><a href="about.html" class="active"><i class="fas fa-info-circle"></i> О нас</a></li>
+      <li><a href="levakand-products.html"><i class="fas fa-shopping-cart"></i> Продукция Levakand</a></li>
+      <li><a href="recording-studio.html"><i class="fas fa-microphone"></i> Студии звукозаписи</a></li>
+      <li><a href="mess.html"><i class="fas fa-folder"></i> Бардак</a></li>
+    </ul>
+  </div>
+
+  <!-- Основной контент -->
+  <div class="content">
+    <header>
+      <h1>О нас</h1>
+    </header>
+    <section>
+      <p>Не знаешь как заработать на своих треках ?</p>
+      <p>Дистербюция, права на треки, схема продвижения, официальные страницы музыканта с галочками и многое другое что нужно тебе и твоей музыке.</p>
+      <p>Напиши нам, отправляй свои дэмки.</p>
+      <p>Возраст , пол , национальность , стиль , язык, внешний вид, место положение!</p>
+      <p>🛑 НЕ ВАЖНО.</p>
+      <p>Ты можешь заниматься своей жизнью и личными делами и одновременно подниматься по лестнице вверх в музыке.</p>
+      <p>С большой, талантливой командой поможем чем сможем на максимум.</p>
+      <p>Наш минимум для тебя будет максимумом, согласись эт лучше чем твои треки просто висят на стенах твоей соц сетей и пылятся. Сколько бы не капало, не помешает что где хоть и не миллионы но капает и твоя музыка приносит доход.</p>
+      <p>Дело не в популярности, а в том, чтоб твой талант принес кусок хлеба в твой дом.</p>
+      <p>Если ты целеустремленный, не сдаешься! И очень уважаешь свое творчество чтоб серьезно взяться. Просто напиши нам.</p>
+      <p>Кроме музыки , уверен и в жизни мы будем как семья.</p>
+      <p>Ищем 👇</p>
+      <ul>
+        <li>Музыкантов (любого жанра)</li>
+        <li>Композиторов, битмейкеров</li>
+        <li>Звукорежиссёров</li>
+        <li>Клипмейкеров, дизайнеров</li>
+        <li>Вебмастера</li>
+        <li>Дикторы</li>
+        <li>Писатели</li>
+        <li>Сценаристы</li>
+        <li>Переводчики</li>
+        <li>Модели</li>
+        <li>Танцоры</li>
+        <li>Диджеи</li>
+        <li>Юристы</li>
+        <li>Гримёры</li>
+        <li>Стилисты</li>
+      </ul>
+      <p>ТВОЕ ПРЕДЛОЖЕНИЕ В ПИСЬМЕ НАМ.</p>
+      <p>Удачи друг 😎 помни о времени. Не никогда не откладывай то, чего можно сделать сегодня.</p>
+      <p>🫶 P.S producer Sibastian TeeJay | LEVAKAND PRODUCTION</p>
+    </section>
+  </div>
+
+  <script>
+    // Добавляем класс active текущей странице
+    document.querySelectorAll('.sidebar ul li a').forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
